@@ -1,0 +1,189 @@
+/*=====сброс стилей=============*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*=============general==============*/
+*{
+    box-sizing: border-box;
+}
+
+/*===========main===================
+/*display: inline-flex; отображает контейнер как строчный элемент*/
+a, span{
+	display: inline-flex;
+	text-decoration: none;
+} 
+
+/*==========переменные===============*/
+:root{
+	--header-color: #3d3d3e;
+	--menu-color: #76daff;
+	--hover-color: yellow;
+	--logo-color: white;
+}
+
+/*===========header-menu==============*/
+.header{
+	display: flex;
+	width: 100%;
+	background: var(--header-color);
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+/*==============menu==================*/
+.header-menu{
+    color: beige;
+	display: flex;
+	justify-content: flex-start;
+}
+.header-menu a{
+	padding: 15px 25px;
+	position: relative;
+	color: var(--menu-color);
+	justify-content: center;
+}
+.header-menu a:before{
+	content: '';
+	position: absolute;
+	top: 100%;
+	border: 5px solid transparent;
+	border-top: 5px solid var(--hover-color);
+	visibility: hidden;
+}
+.header-menu a:hover{
+	background: var(--hover-color);
+}
+.header-menu a:hover::before{
+	visibility: visible;
+}
+/*=================logo==============*/
+.logo{
+	margin-right: 20px;
+	color: var(--logo-color);
+	text-transform: uppercase;
+} 
+
+.main-content{
+	width: 100%;
+	min-height: 500px;
+	background: url('../img/spring.jpg') no-repeat ;
+	padding: 50px;
+}
+.main-menu{
+	display: flex;
+	width: 960px;
+	font-family: 'Kaushan Script', cursive;
+	font-size: 1.5em;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+.main-menu a{
+	padding: 15px 25px;
+	color: #333;
+}
+.main-menu>li{
+	position: relative;
+	display: inline-flex;
+	justify-content: center;
+}
+.main-menu>li:before{
+	content: '';
+	width: 10px;
+	height: 10px;
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 150%;
+	transform: translateY(-50%);
+	transition: all .5s ease;
+	opacity: 0;
+	visibility: hidden;
+}
+.main-menu>li:hover>.submenu,
+.main-menu>li:hover:before{
+	top: 100%;
+	opacity: 1;
+	visibility: visible;
+}
+.submenu{
+	width: 200px;
+	padding: 15px 0;
+	position: absolute;
+	top: 150%;
+	text-align: center;
+	background: #fff;
+	border-radius: 15px;
+	transition: all .5s ease;
+	opacity: 0;
+	visibility: hidden;
+}
+.submenu>li{
+	transition: all .3s ease;
+}
+.submenu>li:hover{
+	background: rgba(0, 0, 0, .2);
+}
+.submenu a{
+	font-family: sans-serif;
+	font-style: italic;
+	font-size: 16px;
+	padding: 5pxS;
+}
+
+/*===========трансформашки==========*/
+
+.trans{
+	width: 300px;
+	height: 300px;
+	background: #000;
+	margin: 100px auto;
+	transform: rotate(70deg);/*аналогично что и rotateZ*/
+}
